@@ -1,0 +1,18 @@
+@startuml
+start
+:Receive Customer Order;
+if (Table Available?) then (yes)
+  :Assign Table;
+  :Take Customer Order;
+  if (Order Ready?) then (yes)
+    :Serve Food;
+  else (no)
+    :Prepare Food;
+  endif
+  :Collect Payment;
+  :Thank Customer;
+else (no)
+  :Add to Waiting List;
+endif
+stop
+@enduml
